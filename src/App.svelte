@@ -3,17 +3,24 @@
 
   let name = 'svelte';
   let count = 0;
+  let upperCase = true;
 </script>
 
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content text-center flex-col lg:flex-row">
-    <h1 class="text-5xl font-bold">Hello {name}!</h1>
+    <h1 class="text-5xl font-bold">Hello {upperCase ? name.toUpperCase() : name}!</h1>
     <input
-      bind:value={name}
-      type="text" 
+      type=text
+      bind:value={name} 
       placeholder={name} 
       class="input input-bordered w-full max-w-xs"
     />
+    <label>
+      <input
+      type=checkbox
+      bind:checked={upperCase}
+    /> upper case
+    </label>
     <img src={logo} class="max-w-sm rounded-lg shadow-2xl" alt="svelte"/>
     <button 
       on:click={_ => count++} 
@@ -24,14 +31,5 @@
   </div>
 </div>
 
-<style lang="less">
-  .rounded_corners {
-    -moz-border-radius: 38px;
-    -webkit-border-radius: 38px;
-    border-radius: 8px;
-  }
-
-  button {
-    .rounded_corners;
-  }
+<style lang="postcss">
 </style>
