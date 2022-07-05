@@ -4,6 +4,12 @@
   let name = 'svelte';
   let count = 0;
   let upperCase = true;
+
+  $: if (count >= 10) {
+		alert('count is dangerously high!');
+		count = 0;
+	}
+
 </script>
 
 <div class="hero min-h-screen bg-base-200">
